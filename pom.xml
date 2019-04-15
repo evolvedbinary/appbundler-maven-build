@@ -206,6 +206,28 @@
             </plugin>
 
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-patch-plugin</artifactId>
+                <version>1.2</version>
+                <executions>
+                    <execution>
+                        <id>patch-native-logging</id>
+                        <phase>process-sources</phase>
+                        <goals>
+                            <goal>apply</goal>
+                        </goals>
+                        <configuration>
+                            <targetDirectory>${project.build.directory}/generated-sources/native</targetDirectory>
+                            <originalFile>${project.build.directory}/generated-sources/native/main.m</originalFile>
+                            <patches>
+                                <patch>logging.patch</patch>
+                            </patches>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
                 <groupId>com.github.maven-nar</groupId>
                 <artifactId>nar-maven-plugin</artifactId>
                 <version>3.6.0</version>
