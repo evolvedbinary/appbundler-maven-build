@@ -242,6 +242,20 @@
                             </patches>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>patch-option-javadoc</id>
+                        <phase>process-sources</phase>
+                        <goals>
+                            <goal>apply</goal>
+                        </goals>
+                        <configuration>
+                            <targetDirectory>${project.build.directory}/generated-sources/java/com/oracle/appbundler</targetDirectory>
+                            <originalFile>${project.build.directory}/generated-sources/java/com/oracle/appbundler/Option.java</originalFile>
+                            <patches>
+                                <patch>option.patch</patch>
+                            </patches>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
 
