@@ -289,7 +289,7 @@
                                 <options>
                                     <option>-arch</option>
                                     <option>${nar.arch}</option>
-                                    <option>-mmacosx-version-min=10.7</option>
+                                    <option>-mmacosx-version-min=10.9</option>
                                     <option>-fobjc-exceptions</option>
                                     <option>-std=c99</option>
                                     <option>-DLIBJLI_DYLIB="${java.home}/jre/lib/jli/libjli.dylib"</option>
@@ -300,6 +300,7 @@
                                 <options>
                                     <option>-framework</option>
                                     <option>Cocoa</option>
+                                    <option>-mmacosx-version-min=10.9</option>
                                 </options>
                             </linker>
                         </configuration>
