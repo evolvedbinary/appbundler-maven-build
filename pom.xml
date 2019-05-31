@@ -256,20 +256,6 @@
                             </patches>
                         </configuration>
                     </execution>
-                    <execution>
-                        <id>patch-native-dylibs</id>
-                        <phase>process-sources</phase>
-                        <goals>
-                            <goal>apply</goal>
-                        </goals>
-                        <configuration>
-                            <targetDirectory>${project.build.directory}/generated-sources/native</targetDirectory>
-                            <originalFile>${project.build.directory}/generated-sources/native/main.m</originalFile>
-                            <patches>
-                                <patch>find-dylibs.patch</patch>
-                            </patches>
-                        </configuration>
-                    </execution>
                 </executions>
             </plugin>
 
