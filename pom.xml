@@ -82,7 +82,7 @@
                             <goal>checkout</goal>
                         </goals>
                         <configuration>
-                            <connectionUrl>scm:hg:https://bitbucket.org/infinitekind/appbundler</connectionUrl>
+                            <connectionUrl>scm:git:https://github.com/TheInfiniteKind/appbundler.git</connectionUrl>
                         </configuration>
                     </execution>
                 </executions>
