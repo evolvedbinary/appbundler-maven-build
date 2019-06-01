@@ -38,7 +38,9 @@
   </scm>
 
     <properties>
-        <checkout.appbundler>${project.build.directory}/checkout/appbundler</checkout.appbundler>
+        <appbundler.git.repo>https://github.com/TheInfiniteKind/appbundler.git</appbundler.git.repo>
+        <checkout.dir>${project.build.directory}/checkout</checkout.dir>
+        <checkout.appbundler>${checkout.dir}/appbundler</checkout.appbundler>
         <project.build.source>1.8</project.build.source>
         <project.build.target>1.8</project.build.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -82,7 +84,7 @@
                             <goal>checkout</goal>
                         </goals>
                         <configuration>
-                            <connectionUrl>scm:git:https://github.com/TheInfiniteKind/appbundler.git</connectionUrl>
+                            <connectionUrl>scm:git:${appbundler.git.repo}</connectionUrl>
                         </configuration>
                     </execution>
                 </executions>
@@ -347,6 +349,25 @@
             </plugin>
 
             <plugin>
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>appbundler-git-buildnumber</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>revision</goal>
+                        </goals>
+                        <configuration>
+                            <dotGitDirectory>${checkout.dir}/.git</dotGitDirectory>
+                            <prefix>appbundler.git</prefix>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.1.1</version>
@@ -365,6 +386,12 @@
                             <Source-Repository>${project.scm.connection}</Source-Repository>
                             <Description>${project.description}</Description>
                             <Implementation-URL>${project.url}</Implementation-URL>
+
+                            <!-- details of the AppBundler source code -->
+                            <AppBundler-Upstream-Git-Commit>${appbundler.git.commit.id}</AppBundler-Upstream-Git-Commit>
+                            <AppBundler-Upstream-Git-Commit-Abbrev>${appbundler.git.commit.id.abbrev}</AppBundler-Upstream-Git-Commit-Abbrev>
+                            <AppBundler-Upstream-Build-Timestamp>${appbundler.git.build.time}</AppBundler-Upstream-Build-Timestamp>
+                            <AppBundler-Upstream-Source-Repository>${appbundler.git.repo}</AppBundler-Upstream-Source-Repository>
                         </manifestEntries>
                     </archive>
                 </configuration>
