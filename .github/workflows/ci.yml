@@ -2,14 +2,24 @@ name: CI
 on: [push, pull_request]
 jobs:
   build:
-    runs-on: macOS-latest
+    name: Build and Test
+    strategy:
+      fail-fast: false
+      matrix:
+        jdk: [8, 11, 17]
+    runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up JDK 8
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up JDK ${{ matrix.jdk }}
         uses: actions/setup-java@v3
         with:
-          java-version: '8'
+          java-version: ${{ matrix.jdk }}
           distribution: 'temurin'
           cache: 'maven'
-      - name: Build with Maven
-        run: mvn -V -B package
+      - name: Build
+        run: mvn -V compile
+      - name: Test
+        run: mvn verify
+      - name: Package
+        run: mvn package
