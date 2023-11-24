@@ -259,7 +259,10 @@
                                 <clearDefaultOptions>true</clearDefaultOptions>
                                 <options>
                                     <option>-arch</option>
-                                    <option>${nar.arch}</option>
+                                    <!-- option>${nar.arch}</option -->
+                                    <option>x86_64</option>
+                                    <option>-arch</option>
+                                    <option>arm64</option>
                                     <option>-mmacosx-version-min=10.9</option>
                                     <option>-fobjc-exceptions</option>
                                     <option>-std=c99</option>
@@ -269,6 +272,11 @@
                             </c>
                             <linker>
                                 <options>
+                                    <!-- option>${nar.arch}</option -->
+                                    <option>-arch</option>
+                                    <option>x86_64</option>
+                                    <option>-arch</option>
+                                    <option>arm64</option>
                                     <option>-framework</option>
                                     <option>Cocoa</option>
                                     <option>-mmacosx-version-min=10.9</option>
