@@ -23,9 +23,12 @@ If you only need a platform specific binary, you may add a classifier to the dep
 
 ## Compiling
 
-To build you will need a macOS machine with Git and Maven 3.6.0+ installed. You can then run:
+To build you will need a macOS machine with Git installed. You can then run:
+
 ```bash
 $ git clone https://github.com/evolvedbinary/appbundler-maven-build.git
 $ cd appbundler-maven-build
-$ mvn clean package
+$ ./mvnw clean package
 ```
+
+NOTE: If you are on a Windows platform you should replace `./mvnw` with `mvn.cmd`.
