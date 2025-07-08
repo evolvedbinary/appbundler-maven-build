@@ -473,6 +473,7 @@
                 <version>3.1.1</version>
                 <configuration>
                     <mavenExecutorId>forked-path</mavenExecutorId>
+                    <tagNameFormat>${project.artifactId}-@{project.version}</tagNameFormat>
                     <releaseProfiles>appbundler-release</releaseProfiles>
                 </configuration>
             </plugin>
@@ -504,6 +505,18 @@
                             </execution>
                         </executions>
                     </plugin>
+                    <plugin>
+                        <groupId>org.sonatype.central</groupId>
+                        <artifactId>central-publishing-maven-plugin</artifactId>
+                        <version>0.7.0</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <publishingServerId>central</publishingServerId>
+                            <deploymentName>${project.artifactId}</deploymentName>
+                            <failOnBuildFailure>true</failOnBuildFailure>
+                            <waitUntil>validated</waitUntil>
+                        </configuration>
+                    </plugin>
                 </plugins>
             </build>
         </profile>
@@ -519,18 +532,5 @@
             <url>http://clojars.org/repo</url>
         </pluginRepository>
     </pluginRepositories>
-
-    <distributionManagement>
-        <snapshotRepository>
-            <id>sonatype-nexus-snapshots</id>
-            <name>Sonatype Nexus Snapshots</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-        </snapshotRepository>
-        <repository>
-            <id>sonatype-nexus-staging</id>
-            <name>Nexus Release Repository</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
 
 </project>
