@@ -36,8 +36,7 @@
         <!-- appbundler.git.repo>https://github.com/TheInfiniteKind/appbundler.git</appbundler.git.repo -->
         <!-- appbundler.git.branch>master</appbundler.git.branch -->
         <appbundler.git.repo>https://github.com/evolvedbinary/appbundler.git</appbundler.git.repo>
-        <!-- appbundler.git.branch>main</appbundler.git.branch -->
-        <appbundler.git.branch>vampire</appbundler.git.branch>
+        <appbundler.git.branch>main</appbundler.git.branch>
         <checkout.dir>${project.build.directory}/checkout</checkout.dir>
         <checkout.appbundler>${checkout.dir}/appbundler</checkout.appbundler>
         <project.build.source>1.8</project.build.source>
