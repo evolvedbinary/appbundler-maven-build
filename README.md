@@ -14,7 +14,7 @@ To use the AppBundler in your own project you can add the following to your `pom
 <dependency>
     <groupId>com.evolvedbinary.appbundler</groupId>
     <artifactId>appbundler</artifactId>
-    <version>1.4.0</version>
+    <version>1.4.1</version>
 </dependency>
 ```
 
