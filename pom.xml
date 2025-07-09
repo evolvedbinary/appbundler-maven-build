@@ -655,7 +655,7 @@
                         <extensions>true</extensions>
                         <configuration>
                             <publishingServerId>central</publishingServerId>
-                            <deploymentName>${project.artifactId}</deploymentName>
+                            <deploymentName>${project.artifactId}-${project.version}</deploymentName>
                             <failOnBuildFailure>true</failOnBuildFailure>
                             <waitUntil>validated</waitUntil>
                         </configuration>
